@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #414141;
+}
+
+header {
+	text-align: center;
+	background-color: #393939;
+	color: #fff;
+	padding: 10px 0;
+	box-shadow: 0px -6px 20px -1px rgba(0,0,0,0.75);
+}

@@ -1,0 +1,55 @@
+/*General styles*/
+
+h2 {
+	color: #fff;
+	padding-top: 20px;
+}
+
+
+/*Classes styles*/
+
+.content {
+	width: 90vw;
+	height: calc(100vh - 72.8px);
+	margin: auto;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-left: 50px;
+	width: 50%;
+	height: 50%;
+	margin: 50px auto 0 auto;
+	background-color: #373737;
+	border-radius: 5px;
+}
+
+.form {
+	margin-top: 40px;
+	width: 90%;
+}
+
+.form form div {
+	margin-bottom: 10px;
+}
+
+.form-container form p {
+	color: #fff;
+}
+
+.form form input, select {
+	width: 100%;
+}
+
+.btn-submit {
+	margin-top: 25px;
+	background-color: #0BEF57;
+	border: none;
+	color: #fff;
+	padding: 5px;
+	border-radius: 3px;
+	cursor: pointer;
+}

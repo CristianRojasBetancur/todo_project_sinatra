@@ -1,0 +1,26 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/add-task.css">
+</head>
+
+<div class="content">
+	<div class="form-container">
+		<h2>Nueva tarea</h2>
+		<div class="form">
+			<form action="/add-task" method="POST">
+				<div>
+					<p>Nombre:</p>
+					<input type="text" name="name" required>
+				</div>
+				<div>
+					<p>Estado:</p>
+					<select name="status" required>
+						<option selected disabled>Selecciona...</option>
+						<option value="true">Completa</option>
+						<option value="false">Incompleta</option>
+					</select>
+				</div>
+				<input class="btn-submit" type="submit" value="Añadir">
+			</form>
+		</div>
+	</div>
+</div>

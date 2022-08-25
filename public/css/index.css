@@ -1,0 +1,116 @@
+/*general styles*/
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+h2 {
+	color: #fff;
+	padding-top: 20px;
+}
+
+/*Classes styles*/
+
+.content {
+	width: 90vw;
+	height: calc(100vh - 72.8px);
+	margin: auto;
+}
+
+.no-tasks {
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.no-tasks h3 {
+	width: 50%;
+	color: #939393;
+	font-weight: 100;
+	border: dotted 4px #939393;
+	padding: 10px;
+	text-align: center;
+}
+
+.tasks_container p {
+	color: #000;
+}
+
+.tasks_container ul li {
+	list-style: none;
+}
+
+.button-container {
+	width: 100%;
+	margin-top: 30px ;
+}
+
+.content .button-alone {
+	display: inline-flex;
+	background-color: #0BEF57;
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+
+.button {
+	margin-top: 30px;
+	display: inline;
+	background-color: #0BEF57;
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+
+.ul-header {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 30px;
+}
+
+.ul-header p {
+	color: #fff;
+}
+
+.task {
+	display: flex;
+	width: 54%;
+	justify-content: space-between;
+}
+
+.card {
+	display: flex;
+	height: 60px;
+	background-color: #fff;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 30px;
+	margin-bottom: 10px;
+}
+
+.actions {
+	display: flex;
+	width: 170px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-update, .btn-delete {
+	border: none;
+	color: #fff;
+	padding: 5px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.btn-update {
+	background-color: #F3B12B;
+}
+
+.btn-delete {
+	background-color: #F32B2B;
+}
+
