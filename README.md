@@ -1,1 +1,1 @@
-# To Do Project with Sinatra (whit Array)
+# To Do Project with Sinatra (with Array)
