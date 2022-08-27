@@ -3,20 +3,43 @@
 </head>
 
 <div class="content">
-		<h2>Tareas</h2><br>
-		<div class="tasks_container">
-			<ul>
-				<% if @tasks.empty? %>
-					<li class="no-tasks"><h3>No tienes tareas aún</h3></li>
-				<% else %>
-					<li>
-						<div class="ul-header">
-							<p><strong>Nombre</strong></p>
-							<p><strong>Estado</strong></p>
-							<p><strong>Acciones</strong></p>
-						</div>
-					</li>
-					<% @tasks.each do |task| %>
+	<div>
+		<% if @type_tasks.nil? || @type_tasks.eql?('all') %>
+			<h2>Tareas</h2>
+		<% elsif @type_tasks.eql?('complete') %>
+			<h2>Tareas completadas</h2>
+		<% else %>
+			<h2>Tareas incompletas</h2>
+		<% end %>
+		<form action="/" method="get">
+			<select name="type_tasks">
+				<option onclick="submit" value="all">Todas</option>
+				<option onclick="submit" value="complete">Completas</option>
+				<option onclick="submit" value="incomplete">Incompletas</option>
+			</select>
+			<input type="submit" value="search">
+		</form>
+	</div>
+	<br>
+	<div class="tasks_container">
+		<ul>
+				<% if @type_tasks.eql?('all') || @type_tasks.nil? %>
+					<% if @tasks.empty? %>
+
+						<li class="no-tasks"><h3>No tienes tareas aún</h3></li>
+
+					<% else %>
+
+						<li>
+							<div class="ul-header">
+								<p><strong>Nombre</strong></p>
+								<p><strong>Estado</strong></p>
+								<p><strong>Acciones</strong></p>
+							</div>
+						</li>
+
+						<% @tasks.each do |task| %>
+
 							<li>
 								<div class="card">
 									<div class="task">
@@ -29,9 +52,83 @@
 									</div>
 								</div>
 							</li>
+
+						<% end %>
 					<% end %>
+
+				<% elsif @type_tasks.eql?('complete') %>
+
+					<% if @complete_tasks.empty? %>
+
+						<li class="no-tasks"><h3>No tienes tareas completas aún</h3></li>
+
+					<% else %>
+
+						<li>
+							<div class="ul-header">
+								<p><strong>Nombre</strong></p>
+								<p><strong>Estado</strong></p>
+								<p><strong>Acciones</strong></p>
+							</div>
+						</li>
+
+						<% @complete_tasks.each do |task| %>
+
+							<li>
+								<div class="card">
+									<div class="task">
+										<p><%= task[:name] %></p>
+										<p><%= task[:status] ? 'Completa' : 'Incompleta'%></p>
+									</div>
+									<div class="actions">
+										<form action="/update-task/?id=<%= task[:id] %>" method="POST"><input class="btn-update" type="submit" value="Completar"></form>
+										<form action="/delete-task/?id=<%= task[:id] %>" method="POST"><input class="btn-delete" type="submit" value="Eliminar"></form>
+									</div>
+								</div>
+							</li>
+
+						<% end %>
+
+					<% end %>
+
+				<% else %>
+
+					<% if @incomplete_tasks.empty? %>
+
+						<li class="no-tasks"><h3>No tienes tareas incompletas :D</h3></li>
+
+					<% else %>
+
+						<li>
+							<div class="ul-header">
+								<p><strong>Nombre</strong></p>
+								<p><strong>Estado</strong></p>
+								<p><strong>Acciones</strong></p>
+							</div>
+						</li>
+
+						<% @incomplete_tasks.each do |task| %>
+
+							<li>
+								<div class="card">
+									<div class="task">
+										<p><%= task[:name] %></p>
+										<p><%= task[:status] ? 'Completa' : 'Incompleta'%></p>
+									</div>
+									<div class="actions">
+										<form action="/update-task/?id=<%= task[:id] %>" method="POST"><input class="btn-update" type="submit" value="Completar"></form>
+										<form action="/delete-task/?id=<%= task[:id] %>" method="POST"><input class="btn-delete" type="submit" value="Eliminar"></form>
+									</div>
+								</div>
+							</li>
+
+						<% end %>
+
+					<% end %>
+
 				<% end %>
-			</ul><br>
-		</div>
-		<a href="/new-task"><div class="button">Añadir</div></a>
+		</ul>
+		<br>
+	</div>
+	<a href="/new-task"><div class="button">Añadir</div></a>
 </div>
